@@ -6,345 +6,337 @@
 <title>POPO CLI 推广海报</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-  
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --blue-100: #dbeafe;
+    --blue-50: #eff6ff;
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-600: #475569;
+    --slate-400: #94a3b8;
+    --slate-200: #e2e8f0;
+    --slate-50: #f8fafc;
+    --green-400: #4ade80;
+    --cyan-400: #22d3ee;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --section-gap: 56px;
+    --side-pad: 64px;
+  }
+
   body {
     font-family: 'Inter', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
-    background: #f0f4f8;
+    background: #eef2f7;
     display: flex;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 48px 20px;
+    -webkit-font-smoothing: antialiased;
   }
 
   .poster {
-    width: 820px;
+    width: 860px;
     background: #ffffff;
-    border-radius: 24px;
+    border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03);
   }
 
-  /* ========== Section 1: Hero ========== */
+  /* ——— Shared: Section Title ——— */
+  .sec-header { text-align: center; margin-bottom: 32px; }
+  .sec-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--slate-900);
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .sec-header p {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--slate-400);
+  }
+
+  /* ========== 1. Hero ========== */
   .hero {
-    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #3b82f6 100%);
-    padding: 52px 56px 44px;
+    background: linear-gradient(135deg, #0f2847 0%, #1d4ed8 55%, #3b82f6 100%);
+    padding: 56px var(--side-pad) 48px;
     position: relative;
     overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute;
-    top: -80px; right: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    width: 480px; height: 480px;
+    top: -200px; right: -120px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 65%);
     border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: 30%;
-    width: 400px; height: 200px;
-    background: radial-gradient(ellipse, rgba(96,165,250,0.15) 0%, transparent 70%);
   }
   .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 6px 16px;
+    gap: 7px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 6px 18px;
     border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #e0f2fe;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
   }
   .hero-badge .dot {
     width: 7px; height: 7px;
-    background: #4ade80;
+    background: var(--green-400);
     border-radius: 50%;
-    animation: pulse 2s infinite;
+    animation: blink 2s ease-in-out infinite;
   }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+
   .hero h1 {
-    font-size: 42px;
+    font-size: 44px;
     font-weight: 900;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 8px;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
     position: relative;
     z-index: 1;
   }
-  .hero h1 .cli-text {
-    background: linear-gradient(90deg, #93c5fd, #60a5fa, #38bdf8);
+  .hero h1 .accent {
+    background: linear-gradient(90deg, #93c5fd 0%, var(--cyan-400) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .hero .slogan {
+  .hero .tagline {
+    margin-top: 14px;
     font-size: 17px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.6;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    max-width: 560px;
     position: relative;
     z-index: 1;
-    max-width: 600px;
   }
-  .hero .slogan strong {
-    color: #ffffff;
-    font-weight: 700;
-  }
-  .hero .terminal-icon {
-    position: absolute;
-    right: 56px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 100px;
-    opacity: 0.12;
-    z-index: 0;
-  }
+  .hero .tagline strong { color: #fff; font-weight: 700; }
 
-  /* ========== Section 2: What is CLI ========== */
-  .what-section {
-    padding: 36px 56px 0;
-  }
+  /* ========== 2. What ========== */
+  .what-section { padding: 44px var(--side-pad) 0; }
   .what-card {
-    background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
-    border: 1px solid #dbeafe;
-    border-radius: 16px;
-    padding: 28px 32px;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    background: var(--blue-50);
+    border: 1px solid var(--blue-100);
+    border-radius: var(--radius-lg);
+    padding: 28px 36px;
+    text-align: center;
   }
-  .what-icon {
-    width: 52px;
-    height: 52px;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(37,99,235,0.25);
-  }
-  .what-content h3 {
-    font-size: 16px;
+  .what-card h3 {
+    font-size: 17px;
     font-weight: 700;
-    color: #1e3a5f;
+    color: var(--slate-900);
     margin-bottom: 6px;
   }
-  .what-content p {
-    font-size: 14px;
-    color: #475569;
-    line-height: 1.7;
+  .what-card p {
+    font-size: 14.5px;
+    color: var(--slate-600);
+    line-height: 1.75;
   }
-  .what-content p .highlight {
-    color: #2563eb;
-    font-weight: 600;
-  }
+  .what-card .hl { color: var(--blue-600); font-weight: 600; }
 
-  /* ========== Section 3: How to Install ========== */
-  .install-section {
-    padding: 36px 56px 0;
-  }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  .section-header .num {
-    width: 28px; height: 28px;
-    background: #2563eb;
-    color: #fff;
-    border-radius: 8px;
+  /* ========== 3. Install ========== */
+  .install-section { padding: var(--section-gap) var(--side-pad) 0; }
+  .cmd-bar {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 36px;
+  }
+  .cmd-bar code {
+    background: var(--slate-800);
+    color: #38bdf8;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
     font-size: 14px;
+    font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+    letter-spacing: 0.2px;
+    line-height: 1;
+  }
+  .cmd-bar code .g { color: var(--green-400); }
+  .cmd-bar .copy-btn {
+    background: var(--blue-600);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 12px;
     font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    transition: background 0.15s;
   }
-  .section-header h2 {
-    font-size: 20px;
-    font-weight: 800;
-    color: #0f172a;
-  }
+  .cmd-bar .copy-btn:hover { background: #1d4ed8; }
 
   .steps {
-    display: flex;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
   .step {
-    flex: 1;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 20px 18px;
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
     position: relative;
-    transition: all 0.2s;
-  }
-  .step:hover {
-    border-color: #93c5fd;
-    box-shadow: 0 4px 16px rgba(37,99,235,0.08);
-  }
-  .step-num {
-    width: 32px; height: 32px;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    color: #fff;
-    border-radius: 10px;
     display: flex;
+    flex-direction: column;
+  }
+  .step-badge {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    width: 28px; height: 28px;
+    background: var(--blue-600);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 13px;
     font-weight: 800;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 8px rgba(37,99,235,0.2);
+    margin-bottom: 14px;
   }
   .step h4 {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 6px;
+    color: var(--slate-900);
+    margin-bottom: 4px;
   }
   .step p {
-    font-size: 12px;
-    color: #64748b;
-    line-height: 1.5;
+    font-size: 13px;
+    color: var(--slate-400);
+    line-height: 1.55;
   }
-  .step code {
-    display: block;
-    background: #1e293b;
-    color: #38bdf8;
-    padding: 8px 12px;
+  .step .terminal {
+    margin-top: auto;
+    padding-top: 12px;
+    background: var(--slate-800);
+    color: #94a3b8;
+    padding: 10px 14px;
     border-radius: 8px;
     font-size: 11.5px;
     font-family: 'SF Mono', 'Fira Code', monospace;
-    margin-top: 8px;
-    word-break: break-all;
-    line-height: 1.5;
+    line-height: 1.6;
   }
-  .step code .prompt {
-    color: #4ade80;
-  }
+  .step .terminal .g { color: var(--green-400); }
+  .step .terminal .c { color: #38bdf8; }
   .step-arrow {
     position: absolute;
-    right: -20px;
+    right: -16px;
     top: 50%;
     transform: translateY(-50%);
-    color: #cbd5e1;
-    font-size: 18px;
+    font-size: 14px;
+    color: var(--slate-200);
     z-index: 2;
   }
 
-  /* ========== Section 4: Skills ========== */
-  .skills-section {
-    padding: 36px 56px 0;
-  }
+  /* ========== 4. Skills ========== */
+  .skills-section { padding: var(--section-gap) var(--side-pad) 0; }
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
   }
   .skill-card {
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 20px 14px;
-    text-align: center;
+    background: var(--slate-50);
+    border: 1.5px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 22px 20px;
     transition: all 0.2s;
   }
   .skill-card:hover {
     border-color: #93c5fd;
+    box-shadow: 0 6px 24px rgba(37,99,235,0.07);
+    transform: translateY(-2px);
+  }
+  .skill-card .icon-wrap {
+    width: 40px; height: 40px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .icon-wrap.im  { background: #dbeafe; }
+  .icon-wrap.doc { background: #fce7f3; }
+  .icon-wrap.sht { background: #d1fae5; }
+  .icon-wrap.bas { background: #fef3c7; }
+  .icon-wrap.cal { background: #e0e7ff; }
+  .skill-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin-bottom: 6px;
+  }
+  .skill-card p {
+    font-size: 13px;
+    color: var(--slate-400);
+    line-height: 1.6;
+  }
+
+  /* ========== 5. Agents ========== */
+  .agents-section { padding: var(--section-gap) var(--side-pad) 0; }
+  .agents-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: nowrap;
+  }
+  .agent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 88px;
+  }
+  .agent .av {
+    width: 60px; height: 60px;
+    border-radius: 16px;
+    background: var(--slate-50);
+    border: 1.5px solid var(--slate-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 800;
+    transition: all 0.2s;
+  }
+  .agent:hover .av {
+    border-color: #93c5fd;
     box-shadow: 0 4px 16px rgba(37,99,235,0.08);
     transform: translateY(-2px);
   }
-  .skill-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 10px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-  }
-  .skill-icon.im { background: #dbeafe; }
-  .skill-icon.doc { background: #fce7f3; }
-  .skill-icon.sheet { background: #d1fae5; }
-  .skill-icon.base { background: #fef3c7; }
-  .skill-icon.calendar { background: #e0e7ff; }
-  .skill-name {
-    font-size: 13px;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 4px;
-  }
-  .skill-desc {
-    font-size: 11px;
-    color: #94a3b8;
-    line-height: 1.4;
-  }
-
-  /* ========== Section 5: Compatible Agents ========== */
-  .agents-section {
-    padding: 36px 56px 0;
-  }
-  .agents-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .agent-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 100px;
-    font-size: 13px;
+  .agent span {
+    font-size: 11.5px;
     font-weight: 600;
-    color: #334155;
-    transition: all 0.2s;
+    color: var(--slate-600);
+    text-align: center;
+    line-height: 1.3;
   }
-  .agent-badge:hover {
-    border-color: #93c5fd;
-    background: #eff6ff;
-  }
-  .agent-badge .agent-icon {
-    width: 24px; height: 24px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 800;
-  }
-  .agent-icon.cm { background: #dbeafe; color: #2563eb; }
-  .agent-icon.cursor { background: #f3e8ff; color: #7c3aed; }
-  .agent-icon.claude { background: #fef3c7; color: #d97706; }
-  .agent-icon.tiangong { background: #fce7f3; color: #db2777; }
-  .agent-icon.cuocuo { background: #d1fae5; color: #059669; }
-  .agent-icon.more { background: #f1f5f9; color: #64748b; }
   .agents-note {
-    margin-top: 12px;
-    font-size: 12px;
-    color: #94a3b8;
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--slate-400);
+    text-align: center;
   }
 
-  /* ========== Section 6: Footer ========== */
+  /* ========== 6. Footer ========== */
   .footer {
-    margin-top: 36px;
-    padding: 24px 56px;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
+    margin-top: var(--section-gap);
+    padding: 22px var(--side-pad);
+    border-top: 1px solid var(--slate-200);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -355,204 +347,175 @@
     gap: 12px;
   }
   .footer-logo {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    border-radius: 10px;
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+    border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 900;
     color: #fff;
-    box-shadow: 0 2px 8px rgba(37,99,235,0.2);
   }
   .footer-info {
     font-size: 13px;
-    color: #475569;
     font-weight: 600;
+    color: var(--slate-600);
   }
-  .footer-info span {
+  .footer-info small {
     display: block;
     font-size: 11px;
     font-weight: 400;
-    color: #94a3b8;
+    color: var(--slate-400);
     margin-top: 1px;
   }
   .footer-right {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-    padding: 10px 20px;
-    border-radius: 12px;
-  }
-  .footer-right .chat-icon { font-size: 18px; }
-  .footer-right .chat-text {
-    font-size: 13px;
-    color: #1e40af;
+    background: var(--blue-50);
+    border: 1px solid var(--blue-100);
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
     font-weight: 600;
+    color: var(--blue-600);
   }
-  .footer-right .chat-text span {
-    display: block;
-    font-size: 11px;
+  .footer-right small {
     font-weight: 400;
-    color: #3b82f6;
+    color: var(--blue-500);
   }
 </style>
 </head>
 <body>
 <div class="poster">
 
-  <!-- ===== 1. Hero: 主标题 + Slogan ===== -->
+  <!-- ===== 1. Hero ===== -->
   <div class="hero">
-    <div class="terminal-icon">⌘</div>
-    <div class="hero-badge">
-      <span class="dot"></span>
-      NEW RELEASE
-    </div>
-    <h1>
-      <span class="cli-text">POPO CLI</span> 正式上线
-    </h1>
-    <div class="slogan">
-      AI 时代，POPO 的新形态 —— <strong>过去 POPO 服务人，现在 POPO CLI 服务 Agent</strong>
-    </div>
+    <div class="hero-badge"><span class="dot"></span> NEW RELEASE</div>
+    <h1><span class="accent">POPO CLI</span> 正式上线</h1>
+    <p class="tagline">AI 时代，POPO 的新形态 —— <strong>过去 POPO 服务人，现在 POPO CLI 服务 Agent</strong></p>
   </div>
 
-  <!-- ===== 2. CLI 作用 ===== -->
+  <!-- ===== 2. What is CLI ===== -->
   <div class="what-section">
     <div class="what-card">
-      <div class="what-icon">⚡</div>
-      <div class="what-content">
-        <h3>什么是 POPO CLI？</h3>
-        <p>
-          一行命令安装，让你的 <span class="highlight">AI Agent 即装即用地调用 POPO 生态能力</span>。
-          无论是发消息、创建文档、读写表格还是管理日程 —— 
-          Agent 装了 CLI，就像人装了 POPO 客户端。
-        </p>
-      </div>
+      <h3>什么是 POPO CLI？</h3>
+      <p>一行命令安装，让你的 <span class="hl">AI Agent 即装即用地调用 POPO 生态能力</span>。无论是发消息、创建文档、读写表格还是管理日程 —— Agent 装了 CLI，就像人装了 POPO 客户端。</p>
     </div>
   </div>
 
-  <!-- ===== 3. 安装流程 ===== -->
+  <!-- ===== 3. Install ===== -->
   <div class="install-section">
-    <div class="section-header">
-      <div class="num">🚀</div>
-      <h2>3 步开始使用</h2>
+    <div class="sec-header">
+      <h2>仅需一行指令，即可在 Agent 操作 POPO</h2>
+      <p>复制以下命令到终端运行即可完成安装</p>
+    </div>
+    <div class="cmd-bar">
+      <code><span class="g">$</span> npm install -g @popo/cli</code>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('npm install -g @popo/cli')">复制</button>
     </div>
     <div class="steps">
       <div class="step">
-        <div class="step-num">1</div>
+        <div class="step-badge">1</div>
         <h4>安装 CLI</h4>
         <p>一行命令，安装 CLI 和全部 Skills</p>
-        <code><span class="prompt">$</span> npm install -g @popo/cli</code>
+        <div class="terminal"><span class="g">$</span> <span class="c">npm install -g @popo/cli</span></div>
         <span class="step-arrow">→</span>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-badge">2</div>
         <h4>选择 Agent</h4>
-        <p>安装后选择要适配的 Agent，自动注入 Skills 文件</p>
-        <code><span class="prompt">?</span> 选择Agent安装目录<br>❯ CodeMaker<br>&nbsp; Cursor<br>&nbsp; Claude Code<br>&nbsp; 其他…</code>
+        <p>选择要适配的 Agent，自动注入 Skills</p>
+        <div class="terminal"><span class="c">?</span> 选择 Agent 安装目录<br>❯ CodeMaker<br>&nbsp; Cursor<br>&nbsp; Claude Code<br>&nbsp; 其他…</div>
         <span class="step-arrow">→</span>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-badge">3</div>
         <h4>OpenID 登录</h4>
-        <p>自动弹出 OpenID 登录页，完成登录、授权即可使用</p>
-        <code><span class="prompt">✓</span> 登录成功<br><span class="prompt">✓</span> Skills 已就绪<br><span class="prompt">✓</span> 开始使用 POPO CLI 🎉</code>
+        <p>弹出登录页，完成登录授权即可使用</p>
+        <div class="terminal"><span class="g">✓</span> 登录成功<br><span class="g">✓</span> Skills 已就绪<br><span class="g">✓</span> 开始使用 POPO CLI 🎉</div>
       </div>
     </div>
   </div>
 
-  <!-- ===== 4. 核心 Skills ===== -->
+  <!-- ===== 4. Skills ===== -->
   <div class="skills-section">
-    <div class="section-header">
-      <div class="num">⚙</div>
-      <h2>5 大 Skills 能力</h2>
+    <div class="sec-header">
+      <h2>POPO 生态核心能力</h2>
+      <p>覆盖 POPO 最核心的应用，并持续快速迭代中</p>
     </div>
     <div class="skills-grid">
       <div class="skill-card">
-        <div class="skill-icon im">💬</div>
-        <div class="skill-name">IM</div>
-        <div class="skill-desc">发送消息 · 搜索聊天<br>创建群聊 · 上传文件</div>
+        <div class="icon-wrap im">💬</div>
+        <h4>IM 消息</h4>
+        <p>发送消息、搜索聊天记录、创建群聊、上传图片/文件、搜索员工信息</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon doc">📄</div>
-        <div class="skill-name">云文档</div>
-        <div class="skill-desc">创建文档 · 读取内容<br>更新文档 · 搜索文档</div>
+        <div class="icon-wrap doc">📄</div>
+        <h4>云文档</h4>
+        <p>创建文档、读取内容、更新文档、搜索云空间文档、插入图片</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon sheet">📊</div>
-        <div class="skill-name">在线表格</div>
-        <div class="skill-desc">创建表格 · 读写表格<br>追加数据 · 查询图表</div>
+        <div class="icon-wrap sht">📊</div>
+        <h4>在线表格</h4>
+        <p>创建表格、读写单元格、追加行数据、查询图表、批量更新</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon base">🗃️</div>
-        <div class="skill-name">多维表格</div>
-        <div class="skill-desc">增删改查数据表<br>字段 · 记录 · 视图</div>
+        <div class="icon-wrap bas">🗃️</div>
+        <h4>多维表格</h4>
+        <p>管理数据表、字段、记录、视图、仪表盘，支持增删改查</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon calendar">📅</div>
-        <div class="skill-name">日程 / 会议</div>
-        <div class="skill-desc">查询日程 · 预约会议<br>忙闲查询 · 管理会议</div>
+        <div class="icon-wrap cal">📅</div>
+        <h4>日程 / 会议</h4>
+        <p>查询日程、预约会议、忙闲查询、管理会议室、更新与取消会议</p>
       </div>
     </div>
   </div>
 
-  <!-- ===== 5. 适配 Agent ===== -->
+  <!-- ===== 5. Agents ===== -->
   <div class="agents-section">
-    <div class="section-header">
-      <div class="num">🤖</div>
-      <h2>适配 Agent</h2>
+    <div class="sec-header">
+      <h2>支持主流 AI Agent 工具</h2>
     </div>
     <div class="agents-row">
-      <div class="agent-badge">
-        <div class="agent-icon cm">C</div>
-        CodeMaker
+      <div class="agent">
+        <div class="av" style="color:#2563eb; font-size:22px;">C</div>
+        <span>CodeMaker</span>
       </div>
-      <div class="agent-badge">
-        <div class="agent-icon cursor" style="background:#fce7f3;color:#db2777;">🦞</div>
-        有道龙虾
+      <div class="agent">
+        <div class="av">🦞</div>
+        <span>有道龙虾</span>
       </div>
-      <div class="agent-badge">
-        <div class="agent-icon" style="background:#fef3c7;color:#d97706;">🦀</div>
-        OpenClaw
+      <div class="agent">
+        <div class="av">🦀</div>
+        <span>OpenClaw</span>
       </div>
-      <div class="agent-badge">
-        <div class="agent-icon claude">C</div>
-        Claude Code
+      <div class="agent">
+        <div class="av" style="color:#d97706; font-size:22px;">C</div>
+        <span>Claude Code</span>
       </div>
-      <div class="agent-badge">
-        <div class="agent-icon cursor">⌥</div>
-        Cursor
+      <div class="agent">
+        <div class="av" style="color:#1e293b; font-size:20px;">⌥</div>
+        <span>Cursor</span>
       </div>
-      <div class="agent-badge">
-        <div class="agent-icon" style="background:#d1fae5;color:#059669;">⌨</div>
-        Opencode
-      </div>
-      <div class="agent-badge">
-        <div class="agent-icon more">···</div>
-        更多 Agent 即将推出
+      <div class="agent">
+        <div class="av" style="color:#94a3b8; font-size:22px;">···</div>
+        <span>更多即将<br>推出</span>
       </div>
     </div>
     <div class="agents-note">若您所在部门有 Agent 需要接入 POPO CLI，可加群 XXX（占位符）联系我们</div>
   </div>
 
-  <!-- ===== 6. Footer: 反馈群入口 ===== -->
+  <!-- ===== 6. Footer ===== -->
   <div class="footer">
     <div class="footer-left">
       <div class="footer-logo">P</div>
-      <div class="footer-info">
-        POPO CLI
-        <span>POPO 生态 · AI Agent 赋能工具</span>
-      </div>
+      <div class="footer-info">POPO CLI<small>POPO 生态 · AI Agent 赋能工具</small></div>
     </div>
     <div class="footer-right">
-      <span class="chat-icon">💬</span>
-      <div class="chat-text">
-        问题反馈 & 功能建议
-        <span>POPO 反馈群：XXXXXXXX（占位符）</span>
-      </div>
+      💬 问题反馈 &amp; 功能建议 &nbsp;<small>POPO 反馈群：XXXXXXXX</small>
     </div>
   </div>
 
